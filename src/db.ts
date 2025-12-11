@@ -7,6 +7,7 @@ const pool = new Pool({
     database: process.env.POSTGRES_DB || 'ardine',
     password: process.env.POSTGRES_PASSWORD || '',
     port: parseInt(process.env.POSTGRES_PORT || '5432', 10),
+    ssl: process.env.POSTGRES_SSL === 'true' ? { rejectUnauthorized: false } : false,
 });
 
 export const query = <T extends QueryResultRow = any>(text: string | QueryConfig<any>, params?: any) => pool.query<T>(text, params);

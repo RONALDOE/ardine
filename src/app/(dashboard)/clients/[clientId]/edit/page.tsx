@@ -273,6 +273,7 @@ export default function EditClientPage() {
 									<option value="EUR">EUR</option>
 									<option value="GBP">GBP</option>
 									<option value="CAD">CAD</option>
+									<option value="DOP">DOP</option>
 								</select>
 							</div>
 						</div>

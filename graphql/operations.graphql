@@ -654,3 +654,44 @@ mutation UpdateInvoiceItem($id: ID!, $input: InvoiceItemPatch!) {
 mutation RemoveInvoiceItem($id: ID!) {
   removeInvoiceItem(id: $id)
 }
+
+# ============================================================================
+# CLIENT PORTAL (PUBLIC ACCESS)
+# ============================================================================
+
+# Public access to client data via phone code
+query GetClientPortalData($phoneCode: String!) {
+  clientPortalAccess(phoneCode: $phoneCode) {
+    client {
+      id
+      name
+      email
+      contactName
+    }
+    projects {
+      id
+      name
+      description
+      status
+      startDate
+      dueDate
+      budgetType
+      budgetHours
+      budgetAmountCents
+      currency
+      totalHours
+      totalAmountCents
+    }
+    invoices {
+      id
+      invoiceNumber
+      status
+      issuedDate
+      dueDate
+      subtotalCents
+      taxAmountCents
+      totalCents
+      currency
+    }
+  }
+}

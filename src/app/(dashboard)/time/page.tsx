@@ -195,6 +195,8 @@ export default function TimesheetsPage() {
 		pause: !currentTeam?.id,
 	});
 
+	console.log(currentTeam?.id);
+
 	// Fetch tasks for selected project in start timer dialog
 	const [tasksResult] = useQuery({
 		query: LIST_TASKS_FOR_START_TIMER_QUERY,

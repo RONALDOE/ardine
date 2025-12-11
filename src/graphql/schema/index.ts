@@ -12,6 +12,7 @@ import '../resolvers/projects';
 import '../resolvers/tasks';
 import '../resolvers/timeEntries';
 import '../resolvers/invoices';
+import '../resolvers/clientPortal';
 
 // Build and export the schema
 export const schema = builder.toSchema();
