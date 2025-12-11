@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useState } from 'react';
+import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, use, useState } from 'react';
 import { useQuery } from 'urql';
 import { gql } from '@/lib/gql';
 import { Button } from '@/components/ui/button';
@@ -260,7 +260,7 @@ export default function ClientPortalPage({ params }: PageProps) {
             <p className="text-gray-500 text-center py-8">No tienes proyectos registrados</p>
           ) : (
             <div className="space-y-4">
-              {projects.map((project) => (
+              {projects.map((project: { id: Key | null | undefined; name: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; status: string; description: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; startDate: string; dueDate: string; totalHours: number | null; totalAmountCents: number | null; currency: string | undefined; budgetType: string; budgetHours: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; budgetAmountCents: number; }) => (
                 <Card key={project.id} className="p-4 hover:shadow-md transition-shadow">
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex-1">
@@ -356,7 +356,7 @@ export default function ClientPortalPage({ params }: PageProps) {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {invoices.map((invoice) => (
+                  {invoices.map((invoice: { id: Key | null | undefined; invoiceNumber: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; status: string; issuedDate: string; dueDate: string; subtotalCents: number; currency: string | undefined; taxAmountCents: number; totalCents: number; }) => (
                     <TableRow key={invoice.id}>
                       <TableCell className="font-medium">{invoice.invoiceNumber}</TableCell>
                       <TableCell>
