@@ -127,7 +127,7 @@ builder.queryFields((t) => ({
         SELECT 
           p.*,
           COALESCE(SUM(te.duration_seconds) / 3600.0, 0) as "totalHours",
-          COALESCE(SUM(
+          COALESCE(ROUND(SUM(
             CASE 
               WHEN te.hourly_rate_cents IS NOT NULL THEN 
                 (te.duration_seconds / 3600.0) * te.hourly_rate_cents
@@ -139,7 +139,7 @@ builder.queryFields((t) => ({
                 (te.duration_seconds / 3600.0) * c.default_hourly_rate_cents
               ELSE 0
             END
-          ), 0) as "totalAmountCents"
+          )), 0)::INTEGER as "totalAmountCents"
         FROM projects p
         LEFT JOIN clients c ON c.id = p.client_id
         LEFT JOIN time_entries te ON te.project_id = p.id
